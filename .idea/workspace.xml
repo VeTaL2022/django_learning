@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa61533e-a8ef-48f6-a85e-48d637bd5b1b" name="Changes" comment="lesson2" />
+    <list default="true" id="fa61533e-a8ef-48f6-a85e-48d637bd5b1b" name="Changes" comment="lesson2">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/cars/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/cars/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/cars/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/cars/migrations/0002_alter_carmodel_table.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/cars/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/cars/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/cars/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/cars/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/cars/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/configs/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/configs/urls.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +38,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="lesson2_lecture" />
+        <entry key="$PROJECT_DIR$" value="lesson1" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -64,6 +82,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kotsv2\PycharmProjects\django_learning\apps" />
       <recent name="C:\Users\kotsv2\PycharmProjects\django_learning\apps\users" />
       <recent name="C:\Users\kotsv\PycharmProjects\django_learning\apps" />
     </key>
@@ -75,6 +94,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="configs.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -136,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669653564430</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="lesson2">
+      <created>1669659939833</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669659939833</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
