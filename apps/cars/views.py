@@ -42,6 +42,7 @@ class CarRetrieveUpdateDestroyView(APIView):
         pk = kwargs.get('pk')
         data = self.request.data
         exists = CarModel.objects.filter(pk=pk).exists()
+
         if not exists:
             return Response("Not Found", status.HTTP_404_NOT_FOUND)
 
