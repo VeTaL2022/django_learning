@@ -24,10 +24,10 @@ from .models import CarModel
 class CarSerializer(ModelSerializer):
     class Meta:
         model = CarModel
-        fields = '__all__'
+        # fields = '__all__'
+        exclude = ('auto_park',)
 
-
-class CarSpecificSerializer(ModelSerializer):
-    class Meta:
-        model = CarModel
-        fields = ('id', 'brand', 'grad_year')
+# class CarSpecificSerializer(ModelSerializer):
+#     class Meta:
+#         model = CarModel
+#         fields = ('id', 'brand', 'grad_year')
