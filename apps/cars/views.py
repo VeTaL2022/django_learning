@@ -1,10 +1,4 @@
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework import status
-from rest_framework.generics import get_object_or_404, GenericAPIView, ListCreateAPIView, CreateAPIView, ListAPIView, \
-    RetrieveAPIView, RetrieveUpdateAPIView, RetrieveDestroyAPIView, RetrieveUpdateDestroyAPIView
-from rest_framework.mixins import ListModelMixin, CreateModelMixin, RetrieveModelMixin, UpdateModelMixin, \
-    DestroyModelMixin
+from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView
 
 from .models import CarModel
 from .serializers import CarSerializer
@@ -19,10 +13,10 @@ class CarListCreateView(ListAPIView):
 
         queryset = super().get_queryset()
 
-        year = query.get('lt_year')
-
-        if year:
+        if (year := query.get('lt_grad_year')) and year.isdigit():
             queryset = queryset.filter(grad_year__lt=year)
+        if (auto_park_id := query.get('auto_park_id')) and auto_park_id.isdigit():
+            queryset = queryset.filter(auto_park_id=auto_park_id)
         return queryset
 
     # def get(self, request, *args, **kwargs):
