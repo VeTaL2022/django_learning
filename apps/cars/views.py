@@ -7,6 +7,7 @@ from .serializers import CarSerializer
 class CarListCreateView(ListAPIView):
     queryset = CarModel.objects.all()
     serializer_class = CarSerializer
+    # permission_classes = (AllowAny,)
 
     def get_queryset(self):
         query = self.request.query_params.dict()
