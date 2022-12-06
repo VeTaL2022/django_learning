@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "635b663f7302edce11e6ad94028592472b1c3cc0e858674208744fa1eb611c8c"
+            "sha256": "a167b8bfaae879ddd92a86d6f8354f62cc72b5b1ddcf13bb4f86504830ab0b37"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -33,6 +33,14 @@
             "markers": "python_version >= '3.8'",
             "version": "==4.1.4"
         },
+        "django-cors-headers": {
+            "hashes": [
+                "sha256:37e42883b5f1f2295df6b4bba96eb2417a14a03270cb24b2a07f021cd4487cf4",
+                "sha256:f9dc6b4e3f611c3199700b3e5f3398c28757dcd559c2f82932687f3d0443cfdf"
+            ],
+            "index": "pypi",
+            "version": "==3.13.0"
+        },
         "djangorestframework": {
             "hashes": [
                 "sha256:579a333e6256b09489cbe0a067e66abe55c6595d8926be6b99423786334350c8",
@@ -41,13 +49,13 @@
             "index": "pypi",
             "version": "==3.14.0"
         },
-        "isort": {
+        "djangorestframework-simplejwt": {
             "hashes": [
-                "sha256:6f62d78e2f89b4500b080fe3a81690850cd254227f27f75c3a0c491a1f351ba7",
-                "sha256:e8443a5e7a020e9d7f97f1d7d9cd17c88bcb3bc7e218bf9cf5095fe550be2951"
+                "sha256:4c0d2e2513e12587d93501ac091781684a216c3ee614eb3b5a10586aef5ca845",
+                "sha256:d27d4bcac2c6394f678dea8b4d0d511c6e18a7f2eb8aaeeb8a7de601aeb77c42"
             ],
             "index": "pypi",
-            "version": "==5.10.1"
+            "version": "==5.2.2"
         },
         "mysqlclient": {
             "hashes": [
@@ -61,6 +69,14 @@
             ],
             "index": "pypi",
             "version": "==2.1.1"
+        },
+        "pyjwt": {
+            "hashes": [
+                "sha256:69285c7e31fc44f68a1feb309e948e0df53259d579295e6cfe2b1792329f05fd",
+                "sha256:d83c3d892a77bbb74d3e1a2cfa90afaadb60945205d1095d9221f04466f64c14"
+            ],
+            "markers": "python_version >= '3.7'",
+            "version": "==2.6.0"
         },
         "pytz": {
             "hashes": [
@@ -86,5 +102,14 @@
             "version": "==2022.7"
         }
     },
-    "develop": {}
+    "develop": {
+        "isort": {
+            "hashes": [
+                "sha256:6f62d78e2f89b4500b080fe3a81690850cd254227f27f75c3a0c491a1f351ba7",
+                "sha256:e8443a5e7a020e9d7f97f1d7d9cd17c88bcb3bc7e218bf9cf5095fe550be2951"
+            ],
+            "index": "pypi",
+            "version": "==5.10.1"
+        }
+    }
 }
