@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="58239fe4-36cb-46f4-bb79-c9a0bc8d5bdf" name="Changes" comment="initial commit" />
+    <list default="true" id="8fed9c0a-dd32-4b48-95da-9f44d3799a2b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,7 +107,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="58239fe4-36cb-46f4-bb79-c9a0bc8d5bdf" name="Changes" comment="initial commit" />
+      <changelist id="8fed9c0a-dd32-4b48-95da-9f44d3799a2b" name="Changes" comment="" />
       <created>1669328701834</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -140,6 +143,7 @@
       <workItem from="1670021485351" duration="6314000" />
       <workItem from="1670064634954" duration="7008000" />
       <workItem from="1670110361529" duration="1990000" />
+      <workItem from="1670341992237" duration="841000" />
     </task>
     <task id="LOCAL-00001" summary="lesson2">
       <created>1669653545165</created>
