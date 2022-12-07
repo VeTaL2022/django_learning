@@ -10,7 +10,7 @@ class CarListCreateView(ListAPIView):
 
     def get_queryset(self):
         query = self.request.query_params.dict()
-
+        CarModel.my_func.lt_seats()
         queryset = super().get_queryset()
 
         if (year := query.get('lt_grad_year')) and year.isdigit():

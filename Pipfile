@@ -8,6 +8,8 @@ djangorestframework = "*"
 django-cors-headers = "*"
 djangorestframework-simplejwt = "*"
 mysqlclient = "*"
+pillow = "*"
+django-dotenv = "*"
 
 [dev-packages]
 isort = "*"

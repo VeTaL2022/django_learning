@@ -1,6 +1,7 @@
 from django.urls import path
 
 from .views import (
+    AddAvatarView,
     AdminToUserView,
     AutoParkListCreateView,
     UserActivateView,
@@ -16,4 +17,5 @@ urlpatterns = [
     path('/<int:pk>/to_admin', UserToAdminView.as_view()),
     path('/<int:pk>/to_user', AdminToUserView.as_view()),
     path('/auto_parks', AutoParkListCreateView.as_view()),
+    path('/avatar', AddAvatarView.as_view())
 ]

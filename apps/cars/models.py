@@ -3,6 +3,8 @@ from django.db import models
 
 from apps.auto_parks.models import AutoParkModel
 
+from .managers import CarManager
+
 
 class CarModel(models.Model):
     class Meta:
@@ -18,3 +20,6 @@ class CarModel(models.Model):
     auto_park = models.ForeignKey(AutoParkModel, on_delete=models.CASCADE, related_name='cars')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    objects = models.Manager()
+    my_func = CarManager()
