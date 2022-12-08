@@ -30,7 +30,7 @@ class CarListCreateView(GenericAPIView):
         car_serializer = CarSerializer(cars, many=True)
         return Response(car_serializer.data, status.HTTP_200_OK)
 
-    def post(self, request, *args, **kwargs):
+    def post(self, *args, **kwargs):
         auto_park = self.get_object()
         data = self.request.data
         serializer = CarSerializer(data=data)
