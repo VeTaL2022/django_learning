@@ -5,6 +5,8 @@ from django.db import transaction
 
 from rest_framework.serializers import ModelSerializer
 
+from core.services.email_service import EmailService
+
 from ..auto_parks.serializers import AutoParkSerializer
 from .models import ProfileModel
 from .models import UserModel as User
@@ -41,6 +43,7 @@ class UserSerializer(ModelSerializer):
         profile = validated_data.pop('profile')
         user = UserModel.objects.create_user(**validated_data)
         ProfileModel.objects.create(**profile, user=user)
+        EmailService.register_email(user)
         return user
 
 
