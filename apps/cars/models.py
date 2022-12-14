@@ -14,6 +14,7 @@ class CarModel(models.Model):
     brand = models.CharField(max_length=15, unique=True, validators=[
         V.MinLengthValidator(3), V.MaxLengthValidator(15)
     ])
+    price = models.FloatField()
     grad_year = models.IntegerField(default=2000)
     n_seats = models.IntegerField()
     body_type = models.CharField(max_length=10, blank=True)
