@@ -20,9 +20,9 @@ class ActivateToken(BlacklistMixin, Token):
     token_type = ActionEnum.ACTIVATE.token_type
 
 
-class ResetPasswordUsingToken(BlacklistMixin, Token):
-    lifetime = ActionEnum.RESET_PASSWORD.expired_time
-    token_type = ActionEnum.RESET_PASSWORD.token_type
+class RecoveryToken(BlacklistMixin, Token):
+    lifetime = ActionEnum.RECOVERY.expired_time
+    token_type = ActionEnum.RECOVERY.token_type
 
 
 class JWTService:
@@ -36,9 +36,7 @@ class JWTService:
             token_resolve = token_class(token)
             token_resolve.check_blacklist()
         except (Exception,):
-            print('Error')
-            raise Exception
-            # raise JWTException
+            raise JWTException
         token_resolve.blacklist()
         user_id = token_resolve.payload.get('user_id')
         return get_object_or_404(UserModel, pk=user_id)

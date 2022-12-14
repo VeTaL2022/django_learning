@@ -8,7 +8,7 @@ from rest_framework.response import Response
 from apps.users.models import UserModel as User
 
 from core.services.email_service import EmailService
-from core.services.jwt_service import ActivateToken, JWTService, ResetPasswordUsingToken
+from core.services.jwt_service import ActivateToken, JWTService, RecoveryToken
 
 from .serializers import EmailSerializer, PasswordSerializer
 
@@ -27,7 +27,7 @@ class ActivateUserView(GenericAPIView):
         return Response(status=status.HTTP_200_OK)
 
 
-class ResetPasswordView(GenericAPIView):
+class RecoveryPasswordView(GenericAPIView):
     permission_classes = AllowAny,
 
     def post(self, *args, **kwargs):
@@ -36,7 +36,7 @@ class ResetPasswordView(GenericAPIView):
         email_serializer.is_valid(raise_exception=True)
         get_email = email_serializer.data.get('email')
         user = get_object_or_404(UserModel, email=get_email)
-        EmailService.reset_password(user)
+        EmailService.recovery_password_using_email(user)
         return Response(status=status.HTTP_200_OK)
 
 
@@ -45,10 +45,10 @@ class ChangePasswordView(GenericAPIView):
 
     def post(self, *args, **kwargs):
         token = self.kwargs.get('token')
-        user = JWTService.validate_token(token, ResetPasswordUsingToken)
         data = self.request.data
         password_serializer = PasswordSerializer(data=data)
         password_serializer.is_valid(raise_exception=True)
-        user.set_password(password_serializer.data.get('password'))
+        user = JWTService.validate_token(token, RecoveryToken)
+        user.set_password(password_serializer.data['password'])
         user.save()
         return Response(status=status.HTTP_200_OK)
