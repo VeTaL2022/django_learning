@@ -10,6 +10,7 @@ djangorestframework-simplejwt = "*"
 mysqlclient = "*"
 pillow = "*"
 django-dotenv = "*"
+django-filter = "*"
 
 [dev-packages]
 isort = "*"
