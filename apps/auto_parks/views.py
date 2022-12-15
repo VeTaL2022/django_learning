@@ -8,6 +8,7 @@ from apps.cars.serializers import CarSerializer
 
 from core.pagination.page_pagination import PagePagination
 
+from .filters import AutoParkFilter
 from .models import AutoParkModel
 from .serializers import AutoParkSerializer
 
@@ -16,6 +17,7 @@ class AutoParkListCreateView(ListAPIView):
     queryset = AutoParkModel.objects.all()
     serializer_class = AutoParkSerializer
     pagination_class = PagePagination
+    filterset_class = AutoParkFilter
 
 
 class CarListCreateView(GenericAPIView):
