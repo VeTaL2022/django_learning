@@ -7,6 +7,7 @@ from rest_framework.generics import CreateAPIView, GenericAPIView, ListCreateAPI
 from rest_framework.permissions import AllowAny, IsAdminUser
 from rest_framework.response import Response
 
+from ..auto_parks.models import AutoParkModel
 from ..auto_parks.serializers import AutoParkSerializer
 from .models import UserModel as User
 from .permissions import IsSuperUser
@@ -18,6 +19,7 @@ UserModel: User = get_user_model()
 # class UserCreateView(CreateAPIView):
 class UserCreateView(ListCreateAPIView):
     serializer_class = UserSerializer
+    queryset = UserModel.objects.all()
     # permission_classes = (IsSuperUser,)
     permission_classes = (AllowAny,)
 
@@ -100,7 +102,8 @@ class AutoParkListCreateView(GenericAPIView):
         serializer = AutoParkSerializer(data=data)
         serializer.is_valid(raise_exception=True)
         user = self.get_object()
-        serializer.save(user=user)
+        auto_park: AutoParkModel = serializer.save()
+        auto_park.users.add(user)
         user_serializer = UserSerializer(user)
         return Response(user_serializer.data, status.HTTP_201_CREATED)
 
