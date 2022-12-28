@@ -4,8 +4,8 @@ services:
   app:
     build:
       context: .
-#    ports:
-#      - "8066:8000"
+    #    ports:
+    #      - "8066:8000"
     volumes:
       - ./backend:/app
     env_file:
@@ -33,4 +33,23 @@ services:
     restart: on-failure
     volumes:
       - ./client:/user/share/nginx/html
+      - ./backend/static:/user/share/nginx/html/doc
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
+
+  redis:
+    image: redis:alpine
+    restart: on-failure
+
+  celery:
+    build:
+      context: .
+    volumes:
+      - ./backend:/app
+    env_file:
+      - .env
+    restart: on-failure
+    depends_on:
+      - db
+    command: >
+      sh -c "celery -A configs worker -l info -B"
+#      sh -c "celery -A configs worker -l info"

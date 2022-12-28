@@ -14,6 +14,9 @@ from .serializers import AutoParkSerializer
 
 
 class AutoParkListCreateView(ListAPIView):
+    """
+    List of all Auto_Parks
+    """
     queryset = AutoParkModel.objects.all()
     serializer_class = AutoParkSerializer
     pagination_class = PagePagination
@@ -21,6 +24,12 @@ class AutoParkListCreateView(ListAPIView):
 
 
 class CarListCreateView(GenericAPIView):
+    """
+    get:
+        Cars by Auto_Park id
+    post:
+        Cars by Auto_Park id
+    """
     queryset = AutoParkModel.objects.all()
 
     def get_permissions(self):
@@ -29,7 +38,7 @@ class CarListCreateView(GenericAPIView):
         return IsAuthenticated(),
 
     @staticmethod
-    def get(*args, **kwargs):
+    def get(self, *args, **kwargs):
         pk = kwargs.get('pk')
         cars = CarModel.objects.filter(auto_park_id=pk)
         car_serializer = CarSerializer(cars, many=True)

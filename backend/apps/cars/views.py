@@ -9,6 +9,8 @@ from .serializers import CarPhotoSerializer, CarSerializer
 
 
 class CarListCreateView(ListAPIView):
+    """List of all Cars"""
+
     queryset = CarModel.objects.all()
     serializer_class = CarSerializer
     filterset_class = CarFilter
@@ -27,14 +29,29 @@ class CarListCreateView(ListAPIView):
 
 
 class CarRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
+    """
+    get:
+        Get Car by id
+    patch:
+        Partial update Car by id
+    put:
+        Full update Car by id
+    delete:
+        Delete Car by id
+    """
+
     queryset = CarModel.objects.all()
     serializer_class = CarSerializer
 
 
 class AddPhotoToCar(GenericAPIView):
+    """
+    Post Photo by Car id
+    """
+    serializer_class = CarSerializer
     queryset = CarModel.objects.all()
 
-    def patch(self, *args, **kwargs):
+    def post(self, *args, **kwargs):
         files = self.request.FILES
         car = self.get_object()
         for key in files:

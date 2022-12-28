@@ -16,11 +16,16 @@ from .serializers import AvatarSerializer, UserSerializer
 UserModel: User = get_user_model()
 
 
-# class UserCreateView(CreateAPIView):
 class UserCreateView(ListCreateAPIView):
+    """
+    get:
+        List of all Users
+    post:
+        Post User
+    """
+
     serializer_class = UserSerializer
     queryset = UserModel.objects.all()
-    # permission_classes = (IsSuperUser,)
     permission_classes = (AllowAny,)
 
 
@@ -40,6 +45,11 @@ class SuperUserTools(AdminTools, ABC):
 
 
 class UserActivateView(AdminTools):
+    """
+    Activate user by id
+    """
+
+    serializer_class = UserSerializer
 
     def patch(self, *args, **kwargs):
         user: UserModel = self.get_object()
@@ -48,11 +58,16 @@ class UserActivateView(AdminTools):
             user.is_active = True
             user.save()
 
-        serializer = UserSerializer(user)
+        serializer = self.serializer_class(user)
         return Response(serializer.data, status.HTTP_200_OK)
 
 
 class UserDeactivateView(AdminTools):
+    """
+    Deactivate user by id
+    """
+
+    serializer_class = UserSerializer
 
     def patch(self, *args, **kwargs):
         user: UserModel = self.get_object()
@@ -61,33 +76,51 @@ class UserDeactivateView(AdminTools):
             user.is_active = False
             user.save()
 
-        serializer = UserSerializer(user)
+        serializer = self.serializer_class(user)
         return Response(serializer.data, status.HTTP_200_OK)
 
 
 class UserToAdminView(SuperUserTools):
+    """
+    User to Admin by id
+    """
+
+    serializer_class = UserSerializer
+
     def patch(self, *args, **kwargs):
         user: UserModel = self.get_object()
 
         if not user.is_staff:
             user.is_staff = True
             user.save()
-        serializer = UserSerializer(user)
+        serializer = self.serializer_class(user)
         return Response(serializer.data, status.HTTP_200_OK)
 
 
 class AdminToUserView(SuperUserTools):
+    """
+    Admin to User by id
+    """
+
+    serializer_class = UserSerializer
+
     def patch(self, *args, **kwargs):
         user: UserModel = self.get_object()
 
         if user.is_staff:
             user.is_staff = False
             user.save()
-        serializer = UserSerializer(user)
+        serializer = self.serializer_class(user)
         return Response(serializer.data, status.HTTP_200_OK)
 
 
 class AutoParkListCreateView(GenericAPIView):
+    """
+    get:
+        Get list of all Auto_Parks by User
+    post:
+        Post Auto_Park by User
+    """
 
     def get_object(self) -> User:
         return self.request.user
