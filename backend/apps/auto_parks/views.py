@@ -1,7 +1,7 @@
 from core.pagination.page_pagination import PagePagination
 
 from rest_framework import status
-from rest_framework.generics import GenericAPIView, ListAPIView
+from rest_framework.generics import GenericAPIView, ListCreateAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 
@@ -13,7 +13,7 @@ from .models import AutoParkModel
 from .serializers import AutoParkSerializer
 
 
-class AutoParkListCreateView(ListAPIView):
+class AutoParkListCreateView(ListCreateAPIView):
     """
     List of all Auto_Parks
     """
@@ -51,4 +51,4 @@ class CarListCreateView(GenericAPIView):
         serializer.is_valid(raise_exception=True)
         serializer.save(auto_park=auto_park)
         auto_park_serializer = AutoParkSerializer(auto_park)
-        return Response(auto_park_serializer.data, status.HTTP_200_OK)
+        return Response(auto_park_serializer.data, status.HTTP_201_CREATED)

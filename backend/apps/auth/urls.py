@@ -5,7 +5,7 @@ from django.urls import path
 from .views import ActivateUserView, ChangePasswordView, RecoveryPasswordView
 
 urlpatterns = [
-    path('', TokenObtainPairView.as_view()),
+    path('', TokenObtainPairView.as_view(), name='auth_login'),
     path('/refresh', TokenRefreshView.as_view()),
     path('/activate/<str:token>', ActivateUserView.as_view()),
     path('/recovery_password', RecoveryPasswordView.as_view()),

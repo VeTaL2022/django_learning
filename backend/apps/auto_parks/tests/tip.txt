@@ -1,0 +1,3 @@
+To allow using database use this command being logged as root:
+    grant all privileges on 'test_docker_db'.* to user@'%';
+    flush privileges ;
